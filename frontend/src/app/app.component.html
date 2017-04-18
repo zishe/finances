@@ -1,4 +1,14 @@
-<div class="app-wrapper">
-  <app-toolbar></app-toolbar>
-  <router-outlet></router-outlet>
+<div class="app-wrapper container">
+  <div class="row">
+    <div class="sidebar-wrapper col s3">
+      <div class="sidebar">
+        <app-sidebar></app-sidebar>
+      </div>
+    </div>
+    <div class="content-wrapper col s9">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>

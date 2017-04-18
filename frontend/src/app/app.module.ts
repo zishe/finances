@@ -18,6 +18,8 @@ import { RegisterFormComponent } from './auth/register-form/register-form.compon
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./guards/auth.guard";
 import { ProfileComponent } from './auth/profile/profile.component';
+import { NewAccountComponent } from './account/new/new.account.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ProfileComponent } from './auth/profile/profile.component';
     AuthDialogComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewAccountComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

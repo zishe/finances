@@ -1,22 +1,12 @@
 <!--Navigation-->
-<div class="sidebar-wrapper">
-  <div class="sidebar">
-    <a href="/">
-    <i class="face material-icons">face</i>
-    </a>
-    <div class="nav-wrapper">
-      <!--<a [routerLink]="['']" id="logo-container" class="brand-logo">Rails & Angular Auth</a>-->
-      <ul class="right hide-on-med-and-down">
-        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()">LOGIN</a></li>
-        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
+<div class="nav-wrapper">
+  <!--<a [routerLink]="['']" id="logo-container" class="brand-logo">Rails & Angular Auth</a>-->
+  <ul class="right hide-on-med-and-down">
+    <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()">LOGIN</a></li>
+    <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
 
-        <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li>
-        <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
-      </ul>
-    </div>
-
-  </div>
-
+    <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li>
+    <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
+  </ul>
 </div>
-
 <app-auth-dialog #authDialog></app-auth-dialog>
