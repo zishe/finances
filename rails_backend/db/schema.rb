@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 20170408174712) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.integer  "actype",               default: 0
     t.money    "balance",    scale: 2
     t.string   "bank"
     t.boolean  "default"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["user_id", "name"], name: "index_accounts_on_user_id_and_name", unique: true, using: :btree
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end

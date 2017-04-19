@@ -1,0 +1,14 @@
+<h2>Accounts</h2>
+
+<section class="main" *ngIf="accounts.length > 0">
+  <ul class="account-list">
+    <li *ngFor="let account of accounts" [class.default]="account.default">
+      <div class="view">
+        <input class="toggle" type="checkbox" (click)="toggleAccountDefault(account)" [checked]="account.complete">
+        <label>{{account.title}}</label>
+        <button class="destroy" (click)="removeAccount(account)"></button>
+      </div>
+    </li>
+  </ul>
+</section>
+<a routerLink="/accounts/new">add</a>

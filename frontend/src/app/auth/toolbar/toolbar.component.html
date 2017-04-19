@@ -1,7 +1,7 @@
 <!--Navigation-->
 <div class="nav-wrapper">
   <!--<a [routerLink]="['']" id="logo-container" class="brand-logo">Rails & Angular Auth</a>-->
-  <ul class="right hide-on-med-and-down">
+  <ul class="">
     <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()">LOGIN</a></li>
     <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
 

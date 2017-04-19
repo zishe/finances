@@ -16,10 +16,12 @@ import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { RegisterFormComponent } from './auth/register-form/register-form.component';
 
 import { AuthService } from "./services/auth.service";
+import { AccountDataService } from "./services/account.service";
 import { AuthGuard } from "./guards/auth.guard";
 import { ProfileComponent } from './auth/profile/profile.component';
 import { NewAccountComponent } from './account/new/new.account.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RegisterFormComponent,
     ProfileComponent,
     NewAccountComponent,
-    SidebarComponent
+    SidebarComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppRoutingModule,
     MaterializeModule
   ],
-  providers: [Angular2TokenService, AuthService, AuthGuard],
+  providers: [Angular2TokenService, AuthService, AuthGuard, AccountDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -39,13 +39,12 @@ class AccountsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_account
-      @account = Account.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def account_params
-      params.require(:account).permit(:name, :balance, :cash, :bank)
-    end
+  def set_account
+    @account = Account.find(params[:id])
+  end
+
+  def account_params
+    params.fetch(:account, {})
+  end
 end

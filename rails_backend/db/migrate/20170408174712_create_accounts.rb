@@ -2,7 +2,7 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
   def change
     create_table :accounts do |t|
       t.string :name
-      t.string :type
+      t.integer :actype, default: 0
       t.money :balance
       t.string :bank
       t.boolean :default
