@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20170408174712) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
-    t.integer  "actype",               default: 0
-    t.money    "balance",    scale: 2
+    t.integer  "actype",           default: 0
+    t.integer  "balance_cents",    default: 0,     null: false
+    t.string   "balance_currency", default: "USD", null: false
     t.string   "bank"
     t.boolean  "default"
     t.integer  "user_id"

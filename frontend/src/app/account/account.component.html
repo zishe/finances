@@ -1,14 +1,32 @@
-<h2>Accounts</h2>
+<nav>
+  <div class="nav-wrapper">
+    <h2>Accounts</h2>
+  </div>
+</nav>
+
+
+<div class="btn-top-block">
+  <div class=" horizontal" style="position: absolute; right: 124px; z-index: 1001;">
+    <a routerLink="/accounts/new" class="btn-floating btn-large">
+      <i class="material-icons" style="cursor: pointer;">add</i>
+    </a>
+  </div>
+</div>
 
 <section class="main" *ngIf="accounts.length > 0">
   <ul class="account-list">
-    <li *ngFor="let account of accounts" [class.default]="account.default">
-      <div class="view">
-        <input class="toggle" type="checkbox" (click)="toggleAccountDefault(account)" [checked]="account.complete">
-        <label>{{account.title}}</label>
-        <button class="destroy" (click)="removeAccount(account)"></button>
+    <li *ngFor="let account of accounts">
+      <div class="view raw clearfix">
+        <div class="account-icon col s2 ">
+          <div class="icon-wrapper">
+            <i class="material-icons">account_balance_wallet</i>
+          </div>
+        </div>
+        <div class="account-name valign-wrapper col s4">{{account.name}}</div>
+        <div class="balance valign-wrapper col s3 offset-s2">{{account.balance_cents | number}} {{account.balance_currency}}</div>
+        <div class="clearfix"></div>
+        <!--<button class="destroy" (click)="removeAccount(account)"></button>-->
       </div>
     </li>
   </ul>
 </section>
-<a routerLink="/accounts/new">add</a>

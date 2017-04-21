@@ -1,30 +1,74 @@
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FF4081;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+
+
 body {
   font-family: 'Roboto', sans-serif;
-  background: #1f232b;
-  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+
+  background: #fafafa;
+  color: $primary-text-color;
+
+  // font-size: 13px;
   line-height: 18px;
   font-weight: 400;
-  color: #ffffff;
+
   text-rendering: optimizelegibility;
   -webkit-font-feature-settings: "kern";
   font-feature-settings: "kern";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  padding: 0;
+
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+  // padding: 0;
 
   .app-wrapper {
     height: 100%;
 
     .content-wrapper {
       overflow: auto;
+      // background-color: #2f232b;
+      width: calc(100% - 220px);
+
+      nav {
+        background-color: $primary-color-dark;
+      }
 
       .content {
-        max-width: 700px;
-        padding: 20px 15px;
-        padding-top: 60px;
-        padding-left: 25px;
+        // max-width: 700px;
+        // padding: 20px 15px;
+        // padding-top: 60px;
+        // padding-left: 25px;
+
+        .btn-top-block {
+          position: relative;
+          height: 50px;
+          margin-top: -30px;
+        }
       }
     }
+
+    .sidebar-wrapper {
+      width: 200px;
+      height: 100%;
+      background: #282c37;
+
+      .sidebar {
+        // height: 100%;
+        padding: 20px 0;
+      }
+    }
+
   }
+}
+
+.btn-floating.btn-large {
+  background-color: $accent-color;
 }

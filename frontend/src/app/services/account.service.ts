@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { Account } from '../account'
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Angular2TokenService } from "angular2-token";
+import { environment } from "../../environments/environment";
+
+import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class AccountDataService {
-
-  private apiPath = 'localhost:3000/';
 
   // Placeholder for last id so we can simulate
   // automatic incrementing of id's
@@ -15,7 +19,8 @@ export class AccountDataService {
   // Placeholder for account's
   accounts: Account[] = [];
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private authToken: Angular2TokenService) {
+    this.authToken.init(environment.token_auth_config);
   }
 
   // Simulate POST /accounts
@@ -57,11 +62,9 @@ export class AccountDataService {
       .pop();
   }
 
-  getAllAccounts(): Promise<Account[]> {
-    console.log(`${this.apiPath}/accounts.json`);
-    return this.http.get(`${this.apiPath}/accounts.json`)
-               .toPromise()
-               .then(response => response.json().data as Account[])
+  getAllAccounts(): Observable<Account[]> {
+    return this.authToken.get('accounts')
+               .map(response => response.json() || {} as Account[])
                .catch(this.handleError);
   }
 
