@@ -22,11 +22,14 @@ export class AccountComponent implements OnInit {
   }
 
    ngOnInit() {
-     this.accountDataService.getAllAccounts().subscribe(accounts => this.accounts = accounts, error => this.errorMessage = error);
+     this.accountDataService.getAllAccounts()
+      .subscribe(accounts => this.accounts = accounts,
+                    error => this.errorMessage = error);
    }
 
   addAccount() {
-    this.accountDataService.addAccount(this.newAccount);
+    this.accountDataService.addAccount(this.newAccount)
+      .subscribe(account => this.accounts.push(account), error => this.errorMessage = error);
     this.newAccount = new Account();
   }
 

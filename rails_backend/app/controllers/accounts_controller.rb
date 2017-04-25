@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   def index
     # logger.debug { "message #{signed_in?}" }
-    # logger.debug current_user
+    logger.debug current_user
     @accounts = current_user.accounts
 
     render json: @accounts

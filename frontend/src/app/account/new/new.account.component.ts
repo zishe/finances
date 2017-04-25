@@ -31,6 +31,8 @@ export class NewAccountComponent {
     console.log(this.angular2TokenService.currentAuthData);
 
     this.accountDataService.addAccount(this.newAccount);
+    console.log('fdfsad');
+
     this.newAccount = new Account();
   }
 

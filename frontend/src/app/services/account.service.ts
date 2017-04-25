@@ -24,7 +24,7 @@ export class AccountDataService {
   }
 
   // Simulate POST /accounts
-  addAccount(account: Account): Observable<Account> {
+  addAccount(account: Account): Observable<any> {
     let body = JSON.stringify({ account });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -32,7 +32,7 @@ export class AccountDataService {
     console.log('adding account');
     console.log(body);
     return this.authToken.post('accounts', body, options)
-      .map(response => response.json() || {} as Account)
+      .map(response => response.json() || {})
       .catch(this.handleError);
 
 
