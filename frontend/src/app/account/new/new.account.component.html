@@ -1,6 +1,27 @@
-<input
-  class="new-account"
-  placeholder="Title"
-  autofocus=""
-   [(ngModel)]="newAccount.name"
-   (keyup.enter)="addAccount()">
+<div class="account-form">
+  <div class="row">
+    <div class="col s5 input-field">
+      <md-select placeholder="Type" [(ngModel)]="newAccount.actype">
+        <md-option *ngFor="let type of actypes; let i = index" [value]="i">{{ type }}</md-option>
+      </md-select>
+    </div>
+    <div class="col s7 input-field" style="margin-top: 0;">
+      <input required class="" placeholder="Name (e.g. VISA Gold)" autofocus="" [(ngModel)]="newAccount.name">
+      <!--<label for="name">Name</label>-->
+    </div>
+    <div class="col s12 input-field">
+      <input required class="" placeholder="0" autofocus="" [(ngModel)]="newAccount.balance_cents">
+    </div>
+    <div class="col s3 input-field">
+      <md-checkbox name="default" required class="" placeholder="0" autofocus="" [(ngModel)]="newAccount.default">Default</md-checkbox>
+    </div>
+    <div class="col s3 input-field">
+      <md-checkbox name="visible" required class="" placeholder="0" autofocus="" [(ngModel)]="newAccount.visible">Visible</md-checkbox>
+    </div>
+    <div class="col s12" style="text-align: right;">
+      <a class="btn-floating btn-large waves-effect waves-light red" (click)="addAccount()">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  </div>
+</div>

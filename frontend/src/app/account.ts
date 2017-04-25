@@ -6,7 +6,13 @@ export class Account {
   bank: string = '';
   default: boolean = false;
 
+  // private types: String[] = ['Cash', 'Card', 'Loan'];
+
   constructor(values: Object = {}) {
     Object.assign(this, values);
   }
+
+  // type(): String {
+  //   return this.types[this.actype];
+  // }
 }

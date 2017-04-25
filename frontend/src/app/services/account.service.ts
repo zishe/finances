@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Account } from '../account'
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Angular2TokenService } from "angular2-token";
 import { environment } from "../../environments/environment";
 
-import { Observable }     from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 
@@ -24,12 +24,20 @@ export class AccountDataService {
   }
 
   // Simulate POST /accounts
-  addAccount(account: Account): AccountDataService {
-    if (!account.id) {
-      account.id = ++this.lastId;
-    }
-    this.accounts.push(account);
-    return this;
+  addAccount(account: Account): Observable<Account> {
+    let body = JSON.stringify({ account });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    console.log('adding account');
+    console.log(body);
+    return this.authToken.post('accounts', body, options)
+      .map(response => response.json() || {} as Account)
+      .catch(this.handleError);
+
+
+    // this.accounts.push(account);
+    // return this;
   }
 
   // Simulate DELETE /accounts/:id
@@ -51,8 +59,8 @@ export class AccountDataService {
 
   // Simulate GET /accounts
   // getAll(): Account[] {
-    // return this.http.get(`${this.apiPath}/accounts.json`).map(response => response.json().data as Account)
-    // return this.accounts;
+  // return this.http.get(`${this.apiPath}/accounts.json`).map(response => response.json().data as Account)
+  // return this.accounts;
   // }
 
   // Simulate GET /accounts/:id
@@ -64,8 +72,8 @@ export class AccountDataService {
 
   getAllAccounts(): Observable<Account[]> {
     return this.authToken.get('accounts')
-               .map(response => response.json() || {} as Account[])
-               .catch(this.handleError);
+      .map(response => response.json().data || {} as Account[])
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

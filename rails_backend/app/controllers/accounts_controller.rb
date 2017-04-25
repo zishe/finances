@@ -1,9 +1,11 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_account, only: [:show, :update, :destroy]
 
   # GET /accounts
   def index
-    @accounts = Account.all
+    logger.debug { "message #{current_user}" }
+    @accounts = current_user.accounts
 
     render json: @accounts
   end

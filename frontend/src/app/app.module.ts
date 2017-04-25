@@ -23,6 +23,10 @@ import { NewAccountComponent } from './account/new/new.account.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountComponent } from './account/account.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdSelectModule, MdCheckboxModule } from '@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,10 @@ import { AccountComponent } from './account/account.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterializeModule
+    MaterializeModule,
+    BrowserAnimationsModule,
+    MdSelectModule,
+    MdCheckboxModule
   ],
   providers: [Angular2TokenService, AuthService, AuthGuard, AccountDataService],
   bootstrap: [AppComponent]
