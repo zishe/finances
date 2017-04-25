@@ -35,6 +35,7 @@ body {
       overflow: auto;
       // background-color: #2f232b;
       width: calc(100% - 220px);
+      min-height: 300px;
 
       nav {
         background-color: $primary-color-dark;

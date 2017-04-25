@@ -72,9 +72,14 @@ export class AccountDataService {
 
   getAllAccounts(): Observable<Account[]> {
     return this.authToken.get('accounts')
-      .map(response => response.json().data || {} as Account[])
+      .map(response => response.json() as Account[])
       .catch(this.handleError);
   }
+
+  // private extractData(res: Response): Observable<any[]> {
+  //   let body: any = res.json();
+  //   return body || { } as Account[];
+  // }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

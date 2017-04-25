@@ -15,13 +15,14 @@ import 'rxjs/add/operator/map';
 export class AccountComponent implements OnInit {
   newAccount: Account = new Account();
   accounts: Account[] = [];
+  errorMessage: String = null;
   typeToClass: string[] = ['account_balance_wallet', 'credit_card', 'account_balance']
 
   constructor(private accountDataService: AccountDataService) {
   }
 
    ngOnInit() {
-     this.accountDataService.getAllAccounts().subscribe(accounts => this.accounts = accounts);
+     this.accountDataService.getAllAccounts().subscribe(accounts => this.accounts = accounts, error => this.errorMessage = error);
    }
 
   addAccount() {
