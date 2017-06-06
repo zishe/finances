@@ -5,6 +5,7 @@ import { HomeComponent } from "./auth/home/home.component";
 import { ProfileComponent } from "./auth/profile/profile.component";
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './account/new/new.account.component';
+import { EditComponent } from './account/edit/edit.component';
 
 import { AuthGuard } from "./guards/auth.guard";
 
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'accounts/new',
     component: NewAccountComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'accounts/:id',
+    component: EditComponent,
     canActivate: [AuthGuard]
   },
   {

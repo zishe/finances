@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 
 import { Account } from '../account'
 import { AccountDataService } from "../services/account.service";
@@ -18,11 +19,11 @@ export class AccountComponent implements OnInit {
   errorMessage: String = null;
   typeToClass: string[] = ['account_balance_wallet', 'credit_card', 'account_balance']
 
-  constructor(private accountDataService: AccountDataService) {
+  constructor(private accountDataService: AccountDataService, private router: Router) {
   }
 
    ngOnInit() {
-     this.accountDataService.getAllAccounts()
+     this.accountDataService.getAll()
       .subscribe(accounts => this.accounts = accounts,
                     error => this.errorMessage = error);
    }
@@ -35,6 +36,11 @@ export class AccountComponent implements OnInit {
 
   removeAccount(Account) {
     this.accountDataService.deleteAccountById(Account.id);
+  }
+
+  show(account: Account){
+    // console.log(account);
+    this.router.navigate(['accounts', account.id]);
   }
 
   //get accounts() {

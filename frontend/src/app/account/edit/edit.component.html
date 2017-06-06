@@ -1,0 +1,36 @@
+<div class="account-form">
+  <div class="row">
+    <div class="col s4 input-field">
+      <md-select placeholder="Type" [(ngModel)]="account.actype">
+        <md-option *ngFor="let type of actypes; let i = index" [value]="i"
+        [attr.selected]="account.actype == type.toLowerCase()">{{ type }}</md-option>
+      </md-select>
+    </div>
+    <div class="col s8 input-field" style="margin-top: 0;">
+      <input required class="" placeholder="Name (e.g. VISA Gold)" autofocus="" [(ngModel)]="account.name">
+    </div>
+    <div class="col s8 input-field" style="margin-top: 0;">
+      <input required class="" [(ngModel)]="account.balance_cents">
+    </div>
+    <div class="col s4 input-field">
+      <md-select placeholder="Currency" [(ngModel)]="account.balance_currency">
+        <md-option *ngFor="let currency of currencies; let i = index" [value]="i"
+         [attr.selected]="account.balance_currency == currency">{{ currency }}</md-option>
+      </md-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s3 input-field">
+      <md-checkbox name="default" required class="" [(ngModel)]="account.default">Default</md-checkbox>
+    </div>
+    <div class="col s3 input-field">
+      <md-checkbox name="visible" required class="" [(ngModel)]="account.visible">Visible</md-checkbox>
+    </div>
+    <div class="col s12" style="text-align: right;">
+      <a class="btn-floating btn-large waves-effect waves-light red" (click)="save()">
+        <i class="material-icons">save</i>
+      </a>
+    </div>
+
+  </div>
+</div>

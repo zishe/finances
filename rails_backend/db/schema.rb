@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170408174712) do
     t.string   "balance_currency", default: "USD", null: false
     t.string   "bank"
     t.boolean  "default"
+    t.boolean  "visible"
     t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false

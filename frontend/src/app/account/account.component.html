@@ -17,15 +17,19 @@
   <ul class="account-list">
     <li *ngFor="let account of accounts">
       <div class="view raw clearfix">
-        <div class="account-icon col s2 ">
-          <div class="icon-wrapper">
-            <i ng class="material-icons">account_balance_wallet</i>
+        <div (click)="show(account)">
+
+          <div class="account-icon col s2 ">
+            <div class="icon-wrapper">
+              <i ng class="material-icons">account_balance_wallet</i>
+            </div>
           </div>
+          <div class="account-name valign-wrapper col s4">{{account.name}}</div>
+          <div class="balance valign-wrapper col s3 offset-s2">{{account.balance_cents | number}} {{account.balance_currency}}</div>
+          <div class="clearfix"></div>
+          <!--<button class="destroy" (click)="removeAccount(account)"></button>-->
+
         </div>
-        <div class="account-name valign-wrapper col s4">{{account.name}}</div>
-        <div class="balance valign-wrapper col s3 offset-s2">{{account.balance_cents | number}} {{account.balance_currency}}</div>
-        <div class="clearfix"></div>
-        <!--<button class="destroy" (click)="removeAccount(account)"></button>-->
       </div>
     </li>
   </ul>

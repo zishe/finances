@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "angular2-materialize": "^6.7.2",
+    "angular2-materialize": "^15.0.1",
     "angular2-token": "^0.2.0-beta.11",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
@@ -33,22 +33,22 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0",
+    "@angular/cli": "1.0.3",
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.47",
     "@types/node": "~7.0.12",
-    "codelyzer": "~2.1.1",
-    "jasmine-core": "~2.5.2",
-    "jasmine-spec-reporter": "~4.0.0",
-    "karma": "~1.6.0",
-    "karma-chrome-launcher": "~2.0.0",
+    "codelyzer": "~3.0.1",
+    "jasmine-core": "~2.6.1",
+    "jasmine-spec-reporter": "~4.1.0",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-coverage-istanbul-reporter": "^1.0.0",
     "protractor": "~5.1.0",
     "ts-node": "~3.0.2",
-    "tslint": "~5.1.0",
-    "typescript": "~2.2.0"
+    "tslint": "~5.2.0",
+    "typescript": "~2.3.2"
   }
 }

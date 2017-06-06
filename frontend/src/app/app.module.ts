@@ -24,7 +24,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountComponent } from './account/account.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdSelectModule, MdCheckboxModule } from '@angular/material';
+import { MdButtonModule, MdSelectModule, MdCheckboxModule, MdSelect } from '@angular/material';
+import { EditComponent } from './account/edit/edit.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MdButtonModule, MdSelectModule, MdCheckboxModule } from '@angular/mater
     ProfileComponent,
     NewAccountComponent,
     SidebarComponent,
-    AccountComponent
+    AccountComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

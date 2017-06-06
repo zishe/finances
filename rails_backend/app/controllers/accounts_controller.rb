@@ -4,7 +4,6 @@ class AccountsController < ApplicationController
 
   # GET /accounts
   def index
-    # logger.debug { "message #{signed_in?}" }
     logger.debug current_user
     @accounts = current_user.accounts
 
@@ -19,6 +18,7 @@ class AccountsController < ApplicationController
   # POST /accounts
   def create
     @account = Account.new(account_params)
+    @account.user = current_user
 
     if @account.save
       render json: @account, status: :created, location: @account
@@ -48,6 +48,7 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.fetch(:account, {})
+    params.require(:account).permit(:name, :actype, :balance_cents,
+      :balance_currency, :bank, :default, :visible)
   end
 end

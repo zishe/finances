@@ -48,29 +48,33 @@ export class AccountDataService {
   }
 
   // Simulate PUT /accounts/:id
-  updateAccountById(id: number, values: Object = {}): Account {
-    let account = this.getAccountById(id);
-    if (!account) {
-      return null;
-    }
-    Object.assign(account, values);
-    return account;
-  }
+  updateAccountById(id: number, values: Object = {}): Observable<Account> {
+    // let account = this.getById(id);
+    // console.log(id);
 
-  // Simulate GET /accounts
-  // getAll(): Account[] {
-  // return this.http.get(`${this.apiPath}/accounts.json`).map(response => response.json().data as Account)
-  // return this.accounts;
-  // }
+    // if (!account) {
+    //   return null;
+    // }
+    // Object.assign(account, values);
+
+    let body = JSON.stringify({ account: values });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.authToken.put('accounts/' + id, body, options)
+      .map(response => response.json() as Account)
+      .catch(this.handleError);
+  }
 
   // Simulate GET /accounts/:id
-  getAccountById(id: number): Account {
-    return this.accounts
-      .filter(account => account.id === id)
-      .pop();
+  getById(id: number): Observable<Account> {
+    if (id < 1) return;
+    return this.authToken.get('accounts/' + id)
+      .map(response => response.json() as Account)
+      .catch(this.handleError);
   }
 
-  getAllAccounts(): Observable<Account[]> {
+  getAll(): Observable<Account[]> {
     return this.authToken.get('accounts')
       .map(response => response.json() as Account[])
       .catch(this.handleError);
