@@ -2,19 +2,18 @@ import { Injectable } from '@angular/core';
 import { Account } from '../account'
 import { Headers, Http, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Angular2TokenService } from "angular2-token";
-import { environment } from "../../environments/environment";
+import { Angular2TokenService } from 'angular2-token';
+import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
 
 @Injectable()
 export class AccountDataService {
 
   // Placeholder for last id so we can simulate
   // automatic incrementing of id's
-  lastId: number = 0;
+  lastId = 0;
 
   // Placeholder for account's
   accounts: Account[] = [];
@@ -57,9 +56,9 @@ export class AccountDataService {
     // }
     // Object.assign(account, values);
 
-    let body = JSON.stringify({ account: values });
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = JSON.stringify({ account: values });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
 
     return this.authToken.put('accounts/' + id, body, options)
       .map(response => response.json() as Account)
